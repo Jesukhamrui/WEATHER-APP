@@ -1,0 +1,370 @@
+:root {
+    --primary-color: #2193b0;
+    --secondary-color: #6dd5ed;
+    --text-color: #333;
+    --error-color: #dc3545;
+    --success-color: #28a745;
+    --border-radius: 8px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.weather-app {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    backdrop-filter: blur(10px);
+}
+
+h1 {
+    color: var(--text-color);
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 28px;
+}
+
+.search-container {
+    margin-bottom: 20px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.input-row {
+    display: flex;
+    gap: 10px;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: var(--border-radius);
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+button {
+    padding: 12px 20px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.location-btn {
+    background-color: var(--success-color);
+}
+
+.weather-info {
+    background: white;
+    padding: 20px;
+    border-radius: var(--border-radius);
+    margin-top: 20px;
+    display: none;
+}
+
+.location-name {
+    font-size: 24px;
+    color: var(--text-color);
+    margin-bottom: 15px;
+}
+
+.temperature {
+    font-size: 48px;
+    color: var(--text-color);
+    margin: 20px 0;
+    text-align: center;
+}
+
+.weather-details {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.detail-item {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: var(--border-radius);
+}
+
+.detail-label {
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+.loading {
+    text-align: center;
+    color: var(--text-color);
+    padding: 20px;
+    display: none;
+}
+
+.error {
+    color: var(--error-color);
+    background-color: rgba(220, 53, 69, 0.1);
+    padding: 12px;
+    border-radius: var(--border-radius);
+    margin-top: 10px;
+    display: none;
+}
+
+.suggestions {
+    position: absolute;
+    width: 100%;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: none;
+}
+
+.suggestion-item {
+    padding: 10px 15px;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+}
+
+.suggestion-item:hover {
+    background: #f0f8ff;
+}
+
+.suggestion-details {
+    font-size: 12px;
+    color: #666;
+    margin-top: 4px;
+}
+
+.recent-searches {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.recent-item {
+    background: #f0f8ff;
+    padding: 6px 12px;
+    border-radius: 15px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.recent-item:hover {
+    background: #e3f2fd;
+}
+footer {
+    background-color: #333; /* Dark background color */
+    color: white; /* White text color */
+    text-align: center; /* Center align the text */
+    padding: 10px; /* Add some padding for spacing */
+    font-family: Arial, sans-serif; /* Set a clean font */
+    position: fixed; /* Fix the footer at the bottom of the page */
+    width: 100%; /* Full width */
+    bottom: 0; /* Stick to the bottom */
+}
+
+footer p {
+    margin: 0; /* Remove default margin from the paragraph */
+}
+
+footer a {
+    color: #4CAF50; /* Green link color */
+    text-decoration: none; /* Remove underline from the link */
+}
+
+footer a:hover {
+    text-decoration: underline; /* Underline link on hover */
+}
+
+
+@media (max-width: 480px) {
+    .weather-app {
+        padding: 20px;
+    }
+
+    .weather-details {
+        grid-template-columns: 1fr;
+    }
+
+    .temperature {
+        font-size: 36px;
+    }
+
+    .input-row {
+        flex-direction: column;
+    }
+}
+ /* ic* jk/
+        /* Container for Social Icons */
+        .header__social {
+            position: fixed;
+            top: 10px;
+            /* Adjust this value to fine-tune vertical position */
+            /*right: auto; /* Adjust this value to fine-tune horizontal position */
+            right: 20px;
+            /* Adjust this value to fine-tune vertical position */
+            display: flex;
+            flex-direction: row;
+            gap: 15px;
+            /* Space between icons */
+            z-index: 1000;
+            /* Ensure it's on top of other content */
+        }
+
+        /* Social Icon Style */
+        .header__social .header__icon {
+            position: relative;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #fff;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            /* Light shadow for better visibility */
+            color: #4d4d4d;
+            /* Default icon color */
+            transition: all 0.3s ease-in-out;
+            font-size: 24px;
+        }
+
+        /* Hover Effects for Icons */
+        .header__social .header__icon:hover {
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+            /* Darker shadow on hover */
+            transform: translateY(-5px);
+            /* Lift the icon on hover */
+        }
+
+        /* Tooltip Style */
+        .header__social .tooltip {
+            position: absolute;
+            top: -35px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+        }
+
+        /* Tooltip Visibility on Hover */
+        .header__social .header__icon:hover .tooltip {
+            opacity: 1;
+            visibility: visible;
+            top: -50px;
+            /* Adjust tooltip position */
+        }
+
+        /* Individual Social Icons (Colors) */
+        .header__social .header__icon a[data-social="linkedin"] {
+            background-color: #0077b5;
+            color: #fff;
+        }
+
+        .header__social .header__icon a[data-social="github"] {
+            background-color: #333;
+            color: #fff;
+        }
+
+        .header__social .header__icon a[data-social="behance"] {
+            background-color: #1769ff;
+            color: #fff;
+        }
+
+        .header__social .header__icon a[data-social="facebook"] {
+            background-color: #1877f2;
+            color: #fff;
+        }
+
+        .header__social .header__icon a[data-social="instagram"] {
+            background-color: #e4405f;
+            color: #fff;
+        }
+
+        .header__social .header__icon a[data-social="twitter"] {
+            background-color: #1da1f2;
+            color: #fff;
+        }
+
+        /* Header Styling */
+        .header {
+            position: fixed;
+            top: 20px;
+            /* Distance from the top */
+            left: 20px;
+            /* Distance from the left */
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+            z-index: 1000;
+            /* Keeps it on top of other elements */
+        }
+
+        .logo img {
+            max-width: 150px;
+            /* Adjust the logo size */
+            height: auto;
+            border-radius: 10px;
+            object-fit: contain;
+        }
+
+        /* Optional: Hover effect for the logo */
+        .logo img:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease;
+        }
