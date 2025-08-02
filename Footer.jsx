@@ -13,7 +13,7 @@ const Footer = () => {
           Contact us: <a href="mailto:jesukhamrui@gmail.com" className="text-blue-500 hover:text-blue-700 transition-colors duration-300">jesukhamrui@gmail.com</a>
         </div>
         <div className="footer-copyright text-gray-600 dark:text-gray-400 transition-colors duration-300">
-          🚧 Our site is under construction 🛠️ | ✨ Exciting features coming soon! 🌟 | © {new Date().getFullYear()} Weather App. All rights reserved.
+          
         </div>
       </div>
     </footer>
