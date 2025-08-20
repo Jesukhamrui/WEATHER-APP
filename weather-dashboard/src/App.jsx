@@ -41,7 +41,7 @@ const App = () => {
     setError(null);
     try {
       const response = await fetch(
-        `/api/v1/forecast.json?key=${apiKey}&q=${encodeURIComponent(query)}&days=1&aqi=yes`
+        `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${encodeURIComponent(query)}&days=1&aqi=yes`
       );
       if (!response.ok) {
         const errorText = await response.text();
